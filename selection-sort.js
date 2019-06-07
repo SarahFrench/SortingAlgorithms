@@ -29,8 +29,7 @@ let array = numbers.nonUniqueRandomNumberArray(20)
 
 console.log("\nUnsorted array:")
 console.log(array)
-
-console.log("\nSelection sorted array:")
+console.log("Selection sorted array:")
 console.log(selectionSort(array))
 
 module.exports = {

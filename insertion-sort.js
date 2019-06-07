@@ -27,8 +27,7 @@ function swapNumberIfSmallerorEqual(currentNumber, comparisonNumber, comparisonN
 
 console.log("\nUnsorted array:")
 console.log(array)
-
-console.log("\Insertion sorted array:")
+console.log("Insertion sorted array:")
 console.log(insertionSort(array))
 
 module.exports = {
