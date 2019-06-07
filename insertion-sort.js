@@ -1,8 +1,8 @@
 const numbers = require('./generate-number-arrays')
 
-let array = [ 3,4,20,20,20,5,1,2 ]
-// let array = numbers.nonUniqueRandomNumberArray(20)
-console.log(array)
+// let array = [ 3,4,20,20,20,5,1,2 ]
+let array = numbers.nonUniqueRandomNumberArray(20)
+
 
 function insertionSort(array){
   for( i = 0 ; i < array.length; i++ ){
@@ -25,6 +25,10 @@ function swapNumberIfSmallerorEqual(currentNumber, comparisonNumber, comparisonN
   return array
 }
 
+console.log("\nUnsorted array:")
+console.log(array)
+
+console.log("\Insertion sorted array:")
 console.log(insertionSort(array))
 
 module.exports = {
