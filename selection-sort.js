@@ -32,3 +32,7 @@ console.log(array)
 
 console.log("\nSelection sorted array:")
 console.log(selectionSort(array))
+
+module.exports = {
+  selectionSort
+}
