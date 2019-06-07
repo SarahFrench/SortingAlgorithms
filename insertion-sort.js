@@ -9,19 +9,20 @@ function insertionSort(array){
     let currentNumber = array[i];
     let position = i;
     for ( position; position >= 0 ; position-- ){
-      swapNumberIfSmallerorEqual(currentNumber, array[position], position)
+      array = swapNumberIfSmallerorEqual(currentNumber, array[position], position, array)
     }
   }
   return array
 }
 
-function swapNumberIfSmallerorEqual(currentNumber, comparisonNumber, comparisonNumberIndex){
+function swapNumberIfSmallerorEqual(currentNumber, comparisonNumber, comparisonNumberIndex, array){
   if (comparisonNumber > currentNumber){
     newPosition = comparisonNumberIndex;
     oldPosition = comparisonNumberIndex+1;
     array[oldPosition] = comparisonNumber;
     array[newPosition] = currentNumber;
   }
+  return array
 }
 
 console.log(insertionSort(array))
