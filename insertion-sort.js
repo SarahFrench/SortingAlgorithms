@@ -17,8 +17,8 @@ function insertionSort(array){
 
 function swapNumberIfSmallerorEqual(currentNumber, comparisonNumber, comparisonNumberIndex){
   if (comparisonNumber > currentNumber){
-    newPosition = comparisonNumberIndex
-    oldPosition = array.indexOf(currentNumber)
+    newPosition = comparisonNumberIndex;
+    oldPosition = comparisonNumberIndex+1;
     array[oldPosition] = comparisonNumber;
     array[newPosition] = currentNumber;
   }
