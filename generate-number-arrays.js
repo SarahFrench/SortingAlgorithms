@@ -1,5 +1,5 @@
-function nonUniqueRandomNumberArray(start, stop, step){
-  let array = Array.from({length:(stop-start)/step + 1 }, () => Math.floor(Math.random()*stop) )
+function nonUniqueRandomNumberArray(length){
+  let array = Array.from({length: length }, () => Math.floor(Math.random()*length) )
   return array
 }
 
