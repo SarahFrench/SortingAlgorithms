@@ -8,7 +8,6 @@ function insertionSort(array){
   for( i = 0 ; i < array.length; i++ ){
     let currentNumber = array[i];
     let position = i;
-    console.log(`${currentNumber} is deciding if it should move`)
     for ( position; position >= 0 ; position-- ){
       swapNumberIfSmallerorEqual(currentNumber, array[position], position)
     }
@@ -22,8 +21,6 @@ function swapNumberIfSmallerorEqual(currentNumber, comparisonNumber, comparisonN
     oldPosition = array.indexOf(currentNumber)
     array[oldPosition] = comparisonNumber;
     array[newPosition] = currentNumber;
-    console.log(`${comparisonNumber}> ${currentNumber} so ${currentNumber} moved to the left by 1`)
-    console.log(`\t\t${array}`)
   }
 }
 
