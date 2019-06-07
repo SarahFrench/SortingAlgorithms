@@ -26,3 +26,8 @@ function swapNumberIfSmallerorEqual(currentNumber, comparisonNumber, comparisonN
 }
 
 console.log(insertionSort(array))
+
+module.exports = {
+  insertionSort,
+  swapNumberIfSmallerorEqual
+}
