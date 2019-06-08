@@ -57,13 +57,4 @@
 
 1) First you split the array in half repeatedly to form a binary tree where each end is an array of one value:
   - [1, 5, 2, 4, 3] becomes:
-
-  .
-  ├── [1,5]
-  │   ├── [1]
-  │   └── [5]
-  ├── [2,4,3]
-      ├── [2]
-      ├── [4,3]
-           ├── [4]
-           └── [3]
+  - [ [ [1],[5] ] [ [2],[ [4],[3] ] ] ]
