@@ -9,7 +9,7 @@ function printArray(array) {
             printArray(array[i])
         else
             console.log(array[i])
-}
+} //copied from https://stackoverflow.com/questions/15854425/iterate-over-a-javascript-array-without-using-nested-for-loops/15854485#15854485
 
 function makeBinaryTree(array){
   if (array.length > 1){
