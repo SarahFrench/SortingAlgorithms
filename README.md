@@ -58,3 +58,33 @@
 1) First you split the array in half repeatedly to form a binary tree where each end is an array of one value:
   - [1, 5, 2, 4, 3] becomes:
   - [ [ [1],[5] ] [ [2],[ [4],[3] ] ] ]
+
+2) You then move up through the levels of the tree and make pairwise comparisons of sorted arrays. You compare the first elements of each array being merged to find the smallest value, and place the smallest value to the end of the output/merged array from that pairwise comparison.
+
+3) The single element arrays at the bottom are sorted, and this algorithm depends on the fact that all arrays being merged together are already sorted. This is what makes the comparison of the first elements a valid approach.
+
+ 4) Example:
+
+  - Three levels deep into the tree
+
+    Merge 1: [ [4],[3] ] => compare 4 to 3 and get output [3,4]
+
+  - Two levels deep into the tree
+
+    Merge 1: [ [1],[5] ] => compare 1 to 5 and get output [1,5]
+
+    Merge 2: [ [2],[3,4] ]
+
+      - compare 2 to 4, put 2 first
+      - As list 1 is now finished the remainder (all) of list 2 is added to the end
+
+
+  - 1 level deep into the tree
+
+    Merge 1: [ [1,5],[2,3,4] ]
+
+      - comparing 1 and 2, 1 is smallest so goes first in merged array's end
+      - comparing 5 and 2, 2 is smallest so is added to merged array's end
+      - comparing 5 and 3, 3 is smallest so is added to merged array's end
+      - comparing 5 and 4, 4 is smallest so is added to merged array's end
+      - 5 is the last unsorted number and is added to merged array's end
