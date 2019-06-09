@@ -17,9 +17,7 @@
   },
   "homepage": "https://github.com/SarahFrench/SortingAlgorithms#readme",
   "dependencies": {
-    "deep-equal": "^1.0.1"
-  },
-  "devDependencies": {
+    "deep-equal": "^1.0.1",
     "chai": "^4.2.0",
     "mocha": "^6.1.4"
   }
