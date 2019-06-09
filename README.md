@@ -1,5 +1,9 @@
 # SortingAlgorithms
 
+## Note
+
+Run npm install before doing anything. Testing requires mocha and chai packages, and the tests themselves rely on the deep-equal package for comparing arrays.
+
 ## Selection Sort:
 1) Search the array of numbers for the smallest value
 
