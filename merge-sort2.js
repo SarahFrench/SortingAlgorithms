@@ -34,7 +34,24 @@ class Node {
   }
 }
 
+function mergeLeftAndRight(leftNode, rightNode){
+  totalNumbers = leftNode.value.length + rightNode.value.length;
+  counter = 0;
+  sortedArray = [];
+  for (let i = 0; i < totalNumbers; i++){
+    console.log ("i = "  +i)
+    firstNumberLeft = leftNode.value[0] != undefined ? leftNode.value[0] : Infinity;
+    firstNumberRight = rightNode.value[0] != undefined ? rightNode.value[0] : Infinity;
+    console.log ("firstNumberLeft = " + firstNumberLeft + "firstNumberRight = " + firstNumberRight)
+    smallerOfBoth = firstNumberLeft < firstNumberRight ? leftNode.value.shift() : rightNode.value.shift();
+    console.log ("smallerOfBoth = " + smallerOfBoth)
+    sortedArray.push(smallerOfBoth)
+  }
+  return sortedArray
+}
+
 // let array = numbers.nonUniqueRandomNumberArray(5);
-let array = [1,2,3,4,5]
+let array = [1,2,5,4,3]
 let myBinaryTree = new Node(array)
-myBinaryTree.navigateTree(myBinaryTree)
+// myBinaryTree.navigateTree(myBinaryTree)
+mergeLeftAndRight(myBinaryTree.left, myBinaryTree.right)
