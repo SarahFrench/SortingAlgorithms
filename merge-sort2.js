@@ -5,7 +5,14 @@ class Node {
     this.left = [];
     this.right = [];
     this.value = array;
+    this.sorted = false;
     this.assignLeftAndRightValues(array)
+    this.branchEnd = (this.left.value.length == 0 && this.right.value.length == 0) ? true : false;
+    if (this.sorted == false && this.branchEnd == false){
+      console.log(this);
+      console.log("sorting");
+      this.mergeLeftAndRight(this.left, this.right)
+    }
   }
 
   assignLeftAndRightValues(array){
@@ -16,6 +23,25 @@ class Node {
       this.left = new Node(left)
       this.right = new Node(right)
     }
+  }
+
+  mergeLeftAndRight(leftNode, rightNode){
+    console.log("leftNode =" + leftNode);
+    console.log("rightNode =" + rightNode);
+    let totalNumbers = [].concat(leftNode.value).concat(rightNode.value).length;
+    let counter = 0;
+    let sortedArray = [];
+    for (let i = 0; i < totalNumbers; i++){
+      console.log ("i = "  +i)
+      let firstNumberLeft = leftNode.value[0] != undefined ? leftNode.value[0] : Infinity;
+      let firstNumberRight = rightNode.value[0] != undefined ? rightNode.value[0] : Infinity;
+      console.log ("firstNumberLeft = " + firstNumberLeft + "firstNumberRight = " + firstNumberRight)
+      let smallerOfBoth = firstNumberLeft < firstNumberRight ? leftNode.value.shift() : rightNode.value.shift();
+      console.log ("smallerOfBoth = " + smallerOfBoth)
+      sortedArray.push(smallerOfBoth)
+    }
+    this.sorted = true;
+    return sortedArray
   }
 
   navigateTree(node){
@@ -34,24 +60,9 @@ class Node {
   }
 }
 
-function mergeLeftAndRight(leftNode, rightNode){
-  totalNumbers = leftNode.value.length + rightNode.value.length;
-  counter = 0;
-  sortedArray = [];
-  for (let i = 0; i < totalNumbers; i++){
-    console.log ("i = "  +i)
-    firstNumberLeft = leftNode.value[0] != undefined ? leftNode.value[0] : Infinity;
-    firstNumberRight = rightNode.value[0] != undefined ? rightNode.value[0] : Infinity;
-    console.log ("firstNumberLeft = " + firstNumberLeft + "firstNumberRight = " + firstNumberRight)
-    smallerOfBoth = firstNumberLeft < firstNumberRight ? leftNode.value.shift() : rightNode.value.shift();
-    console.log ("smallerOfBoth = " + smallerOfBoth)
-    sortedArray.push(smallerOfBoth)
-  }
-  return sortedArray
-}
-
 // let array = numbers.nonUniqueRandomNumberArray(5);
 let array = [1,2,5,4,3]
 let myBinaryTree = new Node(array)
-// myBinaryTree.navigateTree(myBinaryTree)
-mergeLeftAndRight(myBinaryTree.left, myBinaryTree.right)
+myBinaryTree.navigateTree(myBinaryTree)
+// mergeLeftAndRight(myBinaryTree.left, myBinaryTree.right)
+// console.log(myBinaryTree.value);
