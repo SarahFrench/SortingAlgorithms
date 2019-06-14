@@ -4,7 +4,25 @@
 
 Run npm install before doing anything. Testing requires mocha and chai packages, and the tests themselves rely on the deep-equal package for comparing arrays.
 
-## Selection Sort:
+## Merge sort implementation explained
+
+I couldn't suss out implementing merge sort myself, mainly as I havne't done much recursion before, so I found an example online. It's merge-sort3.js .
+
+In that script there are two functions, one which goes through recursion and calls on the other function.
+
+The second function that's called on by an outer function is called `merge`. This takes in two sorted arrays and pushes elements into a sorted resultArray.
+
+The `mergeSort` function undergoes recursion and takes in an unsorted array. As recursion happens, the input goes from the full input array to halves, and halves of halves etc. To stop recursion happening forever there's a ['base condition'](https://www.freecodecamp.org/news/recursion-is-not-hard-858a48830d83/) which, when true, will stop recursion. I.E, your function returns a value if that condition is true. In the case of `mergeSort` the base condition is unsortedArray.length <= 1. unsortedArray.length <= 1 becomes true after an array is split and one of the products is a single element array. This means if everything is completely split, no more splitting is attempted (won't go on infinitely)
+
+When the function is first called it is passed a long unsorted array. As its length is >1 it is split into two. The left and right arrays it is split into are passed into the `merge` function, BUT are arguments in another invocation of the `mergeSort` function. This means that merge will not properly start until the `mergeSort` function returns a value. This first occurs when the base condition is true, i.e. when splitting has produced a single element array. That means that merging begins - you get 2 element arrays made. Crucially, where `merge` is called inside `mergeSort` the output of `merge` is returned. So, when `merge` completes and returns a merged, sorted array, `mergeSort` returns that merged, sorted array. And because all the arguments being passed into `merge` are calls to `mergeSort`, it means everything starts merging from the bottom upwards.
+
+[It's just like this diagram](https://cdn-media-1.freecodecamp.org/images/KioR-yl8aB2lxriDCulsNMTivQ1J5xlmEyrg)
+
+The thing I was missing from my versions of merge sort was the ability to return up the tree, which is achieved here by passing calls to the recusive function as arguments for the merging function.
+
+## Explanation of different sorting algorithms
+
+### Selection Sort:
 1) Search the array of numbers for the smallest value
 
   - [4,3,5,=>1] - looking for next smallest
@@ -30,7 +48,7 @@ Run npm install before doing anything. Testing requires mocha and chai packages,
   - [**1**,**3**,**4**,**5**] - found smallest unsorted number
   - List is sorted
 
-## Insertion Sort:
+### Insertion Sort:
 1) Select first element of the array - is it now a sorted array of 1 element
 
   - [=>4,3,5,1] - cannot move left
@@ -57,7 +75,7 @@ Run npm install before doing anything. Testing requires mocha and chai packages,
 - [**1**,**3**,**4**,**5**]
 - List is sorted
 
-## Merge sort
+### Merge sort
 
 1) First you split the array in half repeatedly to form a binary tree where each end is an array of one value:
   - [1, 5, 2, 4, 3] becomes:
