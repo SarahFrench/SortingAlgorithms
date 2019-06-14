@@ -9,13 +9,13 @@ function insertionSort(array){
     let currentNumber = array[i];
     let position = i;
     for ( position; position >= 0 ; position-- ){
-      array = swapNumberIfSmallerorEqual(currentNumber, array[position], position, array)
+      array = swapNumberIfNeighbourSmallerorEqual(currentNumber, array[position], position, array)
     }
   }
   return array
 }
 
-function swapNumberIfSmallerorEqual(currentNumber, comparisonNumber, comparisonNumberIndex, array){
+function swapNumberIfNeighbourSmallerorEqual(currentNumber, comparisonNumber, comparisonNumberIndex, array){
   if (comparisonNumber > currentNumber){
     newPosition = comparisonNumberIndex;
     oldPosition = comparisonNumberIndex+1;
@@ -32,5 +32,5 @@ console.log(insertionSort(array))
 
 module.exports = {
   insertionSort,
-  swapNumberIfSmallerorEqual
+  swapNumberIfNeighbourSmallerorEqual
 }

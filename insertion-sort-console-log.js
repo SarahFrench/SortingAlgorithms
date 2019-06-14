@@ -10,13 +10,13 @@ function insertionSort(array){
     console.log("Currently assessing " + currentNumber + " at position " + i)
     let position = i;
     for ( position; position >= 0 ; position-- ){
-      array = swapNumberIfSmallerorEqual(currentNumber, array[position], position, array)
+      array = swapNumberIfNeighbourSmallerorEqual(currentNumber, array[position], position, array)
     }
   }
   return array
 }
 
-function swapNumberIfSmallerorEqual(currentNumber, comparisonNumber, comparisonNumberIndex , array){
+function swapNumberIfNeighbourSmallerorEqual(currentNumber, comparisonNumber, comparisonNumberIndex , array){
   console.log ("\t\tLooking at number in position= " + comparisonNumberIndex)
   if (comparisonNumber > currentNumber){
     newPosition = comparisonNumberIndex;
@@ -33,5 +33,5 @@ insertionSort(array);
 
 module.exports = {
   insertionSort,
-  swapNumberIfSmallerorEqual
+  swapNumberIfNeighbourSmallerorEqual
 }

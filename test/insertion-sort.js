@@ -2,9 +2,9 @@ var assert = require('assert');
 var expect = require('chai').expect;
 var should = require('chai').should();
 
-const deepEqual = require('deep-equal') //package for testing if arrays are equal
+const deepEqual = require('deep-equal') //package for testing if arrays are equal. JS arrays are objects so can't test equality
 
-const {insertionSort, swapNumberIfSmallerorEqual} = require('../insertion-sort.js');
+const {insertionSort, swapNumberIfNeighbourSmallerorEqual} = require('../insertion-sort.js');
 
 describe('Insertion sort', function () {
  it('should sort a list of unique numbers into ascending order', function () {
